@@ -4,7 +4,7 @@
 \alias{arg_factory}
 \title{Factory for creating argument types}
 \usage{
-arg_factory(f.conversion, type, short)
+arg_factory(f.conversion, type, short, f.invert = identity)
 }
 \arguments{
 \item{f.conversion}{function used to do conversion}
@@ -12,6 +12,8 @@ arg_factory(f.conversion, type, short)
 \item{type}{type used in argparse}
 
 \item{short}{short name used in help}
+
+\item{f.invert}{function to invert type for argparse of odd types}
 }
 \description{
 Factory for creating argument types

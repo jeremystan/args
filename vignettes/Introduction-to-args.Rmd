@@ -30,3 +30,7 @@ system("chmod +x example.R", intern = TRUE) %>% writeLines
 ```{r}
 system("./example.R --help", intern = TRUE) %>% writeLines
 ```
+
+```{r}
+system("./example.R", intern = TRUE) %>% writeLines
+```

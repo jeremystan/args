@@ -11,7 +11,8 @@ NULL
 #' @param f.conversion function used to do conversion
 #' @param type type used in argparse
 #' @param short short name used in help
-arg_factory <- function(f.conversion, type, short) {
+#' @param f.invert function to invert type for argparse of odd types
+arg_factory <- function(f.conversion, type, short, f.invert = identity) {
 
   function(help, default) {
 
@@ -19,7 +20,8 @@ arg_factory <- function(f.conversion, type, short) {
       help = "(%s) %s [default: %s]" %>% sprintf(short, help, default),
       default = f.conversion(default),
       type = type,
-      conversion = f.conversion
+      conversion = f.conversion,
+      invert = f.invert
     )
 
   }
@@ -41,3 +43,7 @@ arg_lgl <- arg_factory(as.logical, "logical", "lgl")
 #' @rdname args
 #' @export
 arg_chr <- arg_factory(as.character, "character", "chr")
+
+#' @rdname args
+#' @export
+arg_date <- arg_factory(as.Date, "character", "date", as.character)

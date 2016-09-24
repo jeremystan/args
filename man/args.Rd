@@ -3,6 +3,7 @@
 \docType{package}
 \name{args}
 \alias{arg_chr}
+\alias{arg_date}
 \alias{arg_dbl}
 \alias{arg_int}
 \alias{arg_lgl}
@@ -17,6 +18,8 @@ arg_dbl(help, default)
 arg_lgl(help, default)
 
 arg_chr(help, default)
+
+arg_date(help, default)
 }
 \arguments{
 \item{help}{help message}

@@ -24,6 +24,22 @@ test_that("init_args works for a simple example", {
 
 })
 
+test_that("init_args works for a date", {
+
+  args <- init_args(
+    a = arg_date("help a", as.Date("2016-06-01"))
+  )
+
+  expected <- structure(
+    list(a = as.Date("2016-06-01")),
+    help = list(a = "(date) help a [default: 2016-06-01]"),
+    class = "args"
+  )
+
+  expect_identical(args, expected)
+
+})
+
 context("example")
 
 if (FALSE) { # this test is failing in check(), need to revisit
