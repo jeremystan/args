@@ -37,3 +37,7 @@ arg_dbl <- arg_factory(as.double, "double", "dbl")
 #' @rdname args
 #' @export
 arg_lgl <- arg_factory(as.logical, "logical", "lgl")
+
+#' @rdname args
+#' @export
+arg_chr <- arg_factory(as.character, "character", "chr")

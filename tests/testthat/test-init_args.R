@@ -5,15 +5,17 @@ test_that("init_args works for a simple example", {
   args <- init_args(
     a = arg_int("help a", 1),
     b = arg_dbl("help b", .1),
-    c = arg_lgl("help c", TRUE)
+    c = arg_lgl("help c", TRUE),
+    d = arg_chr("help d", "hello")
   )
 
   expected <- structure(
-    list(a = 1L, b = .1, c = TRUE),
+    list(a = 1L, b = .1, c = TRUE, d = "hello"),
     help = list(
       a = "(int) help a [default: 1]",
       b = "(dbl) help b [default: 0.1]",
-      c = "(lgl) help c [default: TRUE]"
+      c = "(lgl) help c [default: TRUE]",
+      d = "(chr) help d [default: hello]"
     ),
     class = "args"
   )

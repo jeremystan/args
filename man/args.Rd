@@ -2,6 +2,7 @@
 % Please edit documentation in R/args-package.R, R/args.R
 \docType{package}
 \name{args}
+\alias{arg_chr}
 \alias{arg_dbl}
 \alias{arg_int}
 \alias{arg_lgl}
@@ -14,6 +15,8 @@ arg_int(help, default)
 arg_dbl(help, default)
 
 arg_lgl(help, default)
+
+arg_chr(help, default)
 }
 \arguments{
 \item{help}{help message}
