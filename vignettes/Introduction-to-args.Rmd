@@ -10,6 +10,23 @@ vignette: >
 ---
 
 ```{r}
-#setwd(system.file("exec", package="args")) 
+library(knitr)
+library(magrittr)
+opts_knit$set(root.dir = system.file("exec", package = "args")) # to access the Rscript file
+```
+
+```{r}
 system("ls", intern = TRUE)
+```
+
+```{r}
+system("cat example.R", intern = TRUE) %>% writeLines
+```
+
+```{r}
+system("chmod +x example.R", intern = TRUE) %>% writeLines
+```
+
+```{r}
+system("./example.R --help", intern = TRUE) %>% writeLines
 ```

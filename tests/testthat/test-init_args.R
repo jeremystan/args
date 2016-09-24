@@ -2,12 +2,10 @@ context("init_args")
 
 test_that("init_args works for a simple example", {
 
-  args <- safely(init_args)(
+  args <- init_args(
     a = arg_int("help a", 1),
     b = arg_int("help b", 2)
   )
-
-  print(args)
 
   expected <- structure(
     list(a = 1L, b = 2L),
@@ -18,6 +16,6 @@ test_that("init_args works for a simple example", {
     class = "args"
   )
 
-  expect_identical(args$result, expected)
+  expect_identical(args, expected)
 
 })

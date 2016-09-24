@@ -1,3 +1,7 @@
+#' Initialize argument parsing
+#'
+#' @param ... list of arguments
+#' @export
 init_args <- function(...) {
 
   args <- lazyeval::lazy_dots(...)
