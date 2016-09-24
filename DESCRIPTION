@@ -1,12 +1,13 @@
 Package: args
-Title: What the Package Does (one line, title case)
+Title: Easy Command Line Arguments
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+Authors@R: person("Jeremy", "Stanley", email = "jeremy.stanley@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 Imports:
     argparse,
     proto,
     lazyeval,
+    magrittr,
     purrr
 Depends:
     R (>= 3.3.1)
@@ -14,5 +15,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests:
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr

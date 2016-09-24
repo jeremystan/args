@@ -5,5 +5,6 @@
 #' @import argparse
 #' @import proto
 #' @import lazyeval
-#' @importFrom purrr map transpose invoke_map
+#' @import magrittr
+#' @importFrom purrr map transpose invoke_map safely
 NULL
