@@ -5,6 +5,7 @@ Authors@R: person("First", "Last", email = "first.last@example.com", role = c("a
 Description: What the package does (one paragraph).
 Imports:
     argparse,
+    proto,
     lazyeval,
     purrr
 Depends:

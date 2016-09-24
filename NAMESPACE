@@ -2,5 +2,7 @@
 
 import(argparse)
 import(lazyeval)
+import(proto)
+importFrom(purrr,invoke_map)
 importFrom(purrr,map)
 importFrom(purrr,transpose)
