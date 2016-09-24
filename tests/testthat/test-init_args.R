@@ -19,3 +19,16 @@ test_that("init_args works for a simple example", {
   expect_identical(args, expected)
 
 })
+
+context("example")
+
+example <- "%s/example.R" %>% sprintf(system.file("exec", package = "args"))
+library(stringr)
+
+test_that("help works", {
+
+  command <- "%s --help" %>% sprintf(example)
+  res <- suppressWarnings(system(command, intern = TRUE))
+  expect_identical(res[1] %>% str_sub(1, 6), "usage:")
+
+})
