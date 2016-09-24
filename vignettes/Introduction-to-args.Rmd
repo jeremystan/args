@@ -1,0 +1,15 @@
+---
+title: "Introduction to args"
+author: "Jeremy Stanley"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to args}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#setwd(system.file("exec", package="args")) 
+system("ls", intern = TRUE)
+```
