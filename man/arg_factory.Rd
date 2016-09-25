@@ -14,6 +14,8 @@ arg_factory(f.conversion, type, short, f.invert = identity, plural = FALSE)
 \item{short}{short name used in help}
 
 \item{f.invert}{function to invert type for argparse of odd types}
+
+\item{plural}{should this arg take multiple values}
 }
 \description{
 Factory for creating argument types

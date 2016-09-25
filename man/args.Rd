@@ -41,7 +41,8 @@ arg_date(help, default)
 \description{
 args.
 
-Define an argument of a specific type
+The \code{argn_} family allows for multiple arguments to be passed when
+delimited by spaces.
 }
 \seealso{
 \code{\link{init_args}} for initializing arguments in a script

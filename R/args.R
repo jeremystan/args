@@ -1,5 +1,8 @@
 #' Define an argument of a specific type
 #'
+#' The \code{argn_} family allows for multiple arguments to be passed when
+#' delimited by spaces.
+#'
 #' @seealso \code{\link{init_args}} for initializing arguments in a script
 #' @name args
 #' @param help help message
@@ -12,6 +15,7 @@ NULL
 #' @param type type used in argparse
 #' @param short short name used in help
 #' @param f.invert function to invert type for argparse of odd types
+#' @param plural should this arg take multiple values
 arg_factory <- function(f.conversion, type, short, f.invert = identity,
                         plural = FALSE) {
 
