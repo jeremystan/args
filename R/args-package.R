@@ -6,5 +6,5 @@
 #' @import proto
 #' @import lazyeval
 #' @import magrittr
-#' @importFrom purrr map transpose invoke_map lift_vd
+#' @importFrom purrr map transpose invoke_map lift_vd lift
 NULL

@@ -27,27 +27,20 @@ init_args <- function(...) {
 
 setup_parser <- function(names, types, defaults, helps, inverts, plurals) {
 
+  # invoke_map doesn't work with dates
+  for(i in seq_along(defaults))
+    defaults[[i]] <- inverts[[i]](defaults[[i]])
+
+  params <- list(
+    paste0("--", names),
+    type = types,
+    default = defaults,
+    help = helps,
+    nargs = ifelse(plurals, list('+'), list(1))
+  )
+
   parser <- ArgumentParser()
-
-  for (i in seq_along(names)) {
-    if (!plurals[[i]]) {
-      parser$add_argument(
-        paste0("--", names[[i]]),
-        type = types[[i]],
-        default = inverts[[i]](defaults[[i]]),
-        help = helps[[i]]
-      )
-    } else {
-      parser$add_argument(
-        paste0("--", names[[i]]),
-        type = types[[i]],
-        default = inverts[[i]](defaults[[i]]),
-        help = helps[[i]],
-        nargs = '+'
-      )
-    }
-  }
-
+  params %>% transpose %>% map(lift(parser$add_argument))
   parser$parse_args()
 
 }
