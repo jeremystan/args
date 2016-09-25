@@ -8,6 +8,7 @@
 \alias{arg_int}
 \alias{arg_lgl}
 \alias{argn_chr}
+\alias{argn_date}
 \alias{argn_dbl}
 \alias{argn_int}
 \alias{argn_lgl}
@@ -32,6 +33,8 @@ arg_chr(help, default)
 argn_chr(help, default)
 
 arg_date(help, default)
+
+argn_date(help, default)
 }
 \arguments{
 \item{help}{help message}

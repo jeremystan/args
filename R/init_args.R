@@ -15,7 +15,10 @@ init_args <- function(...) {
     evaluated$invert, evaluated$plural)
 
   # Ensure types are correct
-  actuals <- invoke_map(evaluated$conversion, actuals)
+  # invoke_map doesn't work with dates
+  #actuals <- invoke_map(evaluated$conversion, actuals)
+  for(i in seq_along(actuals))
+    actuals[[i]] <- evaluated$conversion[[i]](actuals[[i]])
 
   structure(
     actuals,
@@ -28,6 +31,7 @@ init_args <- function(...) {
 setup_parser <- function(names, types, defaults, helps, inverts, plurals) {
 
   # invoke_map doesn't work with dates
+  #defaults <- invoke_map(inverts, defaults)
   for(i in seq_along(defaults))
     defaults[[i]] <- inverts[[i]](defaults[[i]])
 

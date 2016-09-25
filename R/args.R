@@ -80,3 +80,8 @@ argn_chr <- arg_factory(lift_vd(as.character), "character", "chr",
 #' @rdname args
 #' @export
 arg_date <- arg_factory(as.Date, "character", "date", as.character)
+
+#' @rdname args
+#' @export
+argn_date <- arg_factory(as.Date, "character", "date", as.character,
+                         plural = TRUE)

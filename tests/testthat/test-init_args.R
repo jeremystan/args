@@ -65,6 +65,22 @@ test_that("init_args works for plurals", {
 
 })
 
+test_that("init_args works with plural dates", {
+
+  args <- init_args(
+    a = argn_date("help a", c(as.Date("2016-06-01"), as.Date("2016-06-02")))
+  )
+
+  expected <- structure(
+    list(a = c(as.Date("2016-06-01"), as.Date("2016-06-02"))),
+    help = list(a = "(date n) help a [default: 2016-06-01 2016-06-02]"),
+    class = "args"
+  )
+
+  expect_identical(args, expected)
+
+})
+
 context("example")
 
 if (FALSE) { # this test is failing in check(), need to revisit
