@@ -4,7 +4,7 @@
 \alias{arg_factory}
 \title{Factory for creating argument types}
 \usage{
-arg_factory(f.conversion, type, short, f.invert = identity)
+arg_factory(f.conversion, type, short, f.invert = identity, plural = FALSE)
 }
 \arguments{
 \item{f.conversion}{function used to do conversion}

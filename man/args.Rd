@@ -7,17 +7,29 @@
 \alias{arg_dbl}
 \alias{arg_int}
 \alias{arg_lgl}
+\alias{argn_chr}
+\alias{argn_dbl}
+\alias{argn_int}
+\alias{argn_lgl}
 \alias{args}
 \alias{args-package}
 \title{args.}
 \usage{
 arg_int(help, default)
 
+argn_int(help, default)
+
 arg_dbl(help, default)
+
+argn_dbl(help, default)
 
 arg_lgl(help, default)
 
+argn_lgl(help, default)
+
 arg_chr(help, default)
+
+argn_chr(help, default)
 
 arg_date(help, default)
 }

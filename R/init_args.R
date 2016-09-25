@@ -12,7 +12,7 @@ init_args <- function(...) {
   # Setup the parser and read from command line
   actuals <- setup_parser(
     names(args), evaluated$type, evaluated$default, evaluated$help,
-    evaluated$invert)
+    evaluated$invert, evaluated$plural)
 
   # Ensure types are correct
   actuals <- invoke_map(evaluated$conversion, actuals)
@@ -25,17 +25,27 @@ init_args <- function(...) {
 
 }
 
-setup_parser <- function(names, types, defaults, helps, inverts) {
+setup_parser <- function(names, types, defaults, helps, inverts, plurals) {
 
   parser <- ArgumentParser()
 
   for (i in seq_along(names)) {
-    parser$add_argument(
-      paste0("--", names[[i]]),
-      type = types[[i]],
-      default = inverts[[i]](defaults[[i]]),
-      help = helps[[i]]
-    )
+    if (!plurals[[i]]) {
+      parser$add_argument(
+        paste0("--", names[[i]]),
+        type = types[[i]],
+        default = inverts[[i]](defaults[[i]]),
+        help = helps[[i]]
+      )
+    } else {
+      parser$add_argument(
+        paste0("--", names[[i]]),
+        type = types[[i]],
+        default = inverts[[i]](defaults[[i]]),
+        help = helps[[i]],
+        nargs = '+'
+      )
+    }
   }
 
   parser$parse_args()

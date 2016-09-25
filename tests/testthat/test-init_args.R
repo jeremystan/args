@@ -40,6 +40,31 @@ test_that("init_args works for a date", {
 
 })
 
+test_that("init_args works for plurals", {
+
+  args <- init_args(
+    a = argn_int("help a", c(1L, 2L)),
+    b = argn_dbl("help b", c(.1, .2)),
+    c = argn_lgl("help c", c(TRUE, FALSE)),
+    d = argn_chr("help d", c("hello", "world"))
+  )
+
+  expected <- structure(
+    list(a = c(1L, 2L),
+         b = c(.1, .2),
+         c = c(TRUE, FALSE),
+         d = c("hello", "world")),
+    help = list(a = "(int n) help a [default: 1 2]",
+                b = "(dbl n) help b [default: 0.1 0.2]",
+                c = "(lgl n) help c [default: TRUE FALSE]",
+                d = "(chr n) help d [default: hello world]"),
+    class = "args"
+  )
+
+  expect_identical(args, expected)
+
+})
+
 context("example")
 
 if (FALSE) { # this test is failing in check(), need to revisit
