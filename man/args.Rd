@@ -3,38 +3,38 @@
 \docType{package}
 \name{args}
 \alias{arg_chr}
+\alias{arg_chr_n}
 \alias{arg_date}
+\alias{arg_date_n}
 \alias{arg_dbl}
+\alias{arg_dbl_n}
 \alias{arg_int}
+\alias{arg_int_n}
 \alias{arg_lgl}
+\alias{arg_lgl_n}
 \alias{args}
 \alias{args-package}
-\alias{narg_chr}
-\alias{narg_date}
-\alias{narg_dbl}
-\alias{narg_int}
-\alias{narg_lgl}
 \title{args.}
 \usage{
 arg_int(help, default = NULL, side.effect = NULL)
 
-narg_int(help, default = NULL, side.effect = NULL)
+arg_int_n(help, default = NULL, side.effect = NULL)
 
 arg_dbl(help, default = NULL, side.effect = NULL)
 
-narg_dbl(help, default = NULL, side.effect = NULL)
+arg_dbl_n(help, default = NULL, side.effect = NULL)
 
 arg_lgl(help, default = NULL, side.effect = NULL)
 
-narg_lgl(help, default = NULL, side.effect = NULL)
+arg_lgl_n(help, default = NULL, side.effect = NULL)
 
 arg_chr(help, default = NULL, side.effect = NULL)
 
-narg_chr(help, default = NULL, side.effect = NULL)
+arg_chr_n(help, default = NULL, side.effect = NULL)
 
 arg_date(help, default = NULL, side.effect = NULL)
 
-narg_date(help, default = NULL, side.effect = NULL)
+arg_date_n(help, default = NULL, side.effect = NULL)
 }
 \arguments{
 \item{help}{help message}

@@ -44,10 +44,10 @@ test_that("init_args works for a date", {
 test_that("init_args works for plurals", {
 
   args <- init_args(
-    a = narg_int("help a", c(1L, 2L)),
-    b = narg_dbl("help b", c(.1, .2)),
-    c = narg_lgl("help c", c(TRUE, FALSE)),
-    d = narg_chr("help d", c("hello", "world"))
+    a = arg_int_n("help a", c(1L, 2L)),
+    b = arg_dbl_n("help b", c(.1, .2)),
+    c = arg_lgl_n("help c", c(TRUE, FALSE)),
+    d = arg_chr_n("help d", c("hello", "world"))
   )
 
   expected <- structure(
@@ -69,7 +69,7 @@ test_that("init_args works for plurals", {
 test_that("init_args works with plural dates", {
 
   args <- init_args(
-    a = narg_date("help a", c(as.Date("2016-06-01"), as.Date("2016-06-02")))
+    a = arg_date_n("help a", c(as.Date("2016-06-01"), as.Date("2016-06-02")))
   )
 
   expected <- structure(
@@ -93,6 +93,8 @@ test_that("side effect works", {
 })
 
 test_that("value must be supplied or will error", {
+
+  # !!! Need to also test that can pass in a req argument and it works
 
   expect_error(init_args(req = arg_chr("has no default")),
                "command line arg `--req` must be specified")
