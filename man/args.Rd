@@ -16,30 +16,33 @@
 \alias{narg_lgl}
 \title{args.}
 \usage{
-arg_int(help, default)
+arg_int(help, default, side.effect = NULL)
 
-narg_int(help, default)
+narg_int(help, default, side.effect = NULL)
 
-arg_dbl(help, default)
+arg_dbl(help, default, side.effect = NULL)
 
-narg_dbl(help, default)
+narg_dbl(help, default, side.effect = NULL)
 
-arg_lgl(help, default)
+arg_lgl(help, default, side.effect = NULL)
 
-narg_lgl(help, default)
+narg_lgl(help, default, side.effect = NULL)
 
-arg_chr(help, default)
+arg_chr(help, default, side.effect = NULL)
 
-narg_chr(help, default)
+narg_chr(help, default, side.effect = NULL)
 
-arg_date(help, default)
+arg_date(help, default, side.effect = NULL)
 
-narg_date(help, default)
+narg_date(help, default, side.effect = NULL)
 }
 \arguments{
 \item{help}{help message}
 
 \item{default}{default value}
+
+\item{side.effect}{optional side effect function that the argument value will
+be passed into}
 }
 \description{
 args.

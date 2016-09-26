@@ -81,6 +81,16 @@ test_that("init_args works with plural dates", {
 
 })
 
+test_that("side effect works", {
+
+  res <- capture.output(args <- init_args(
+    a = arg_chr("help a", "this is my default", print)
+  ))
+
+  expect_identical(res, '[1] "this is my default"')
+
+})
+
 context("example")
 
 if (FALSE) { # this test is failing in check(), need to revisit

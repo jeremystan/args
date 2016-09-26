@@ -7,6 +7,8 @@
 #' @name args
 #' @param help help message
 #' @param default default value
+#' @param side.effect optional side effect function that the argument value will
+#'        be passed into
 NULL
 
 #' Factory for creating argument types
@@ -19,7 +21,7 @@ NULL
 arg_factory <- function(f.conversion, type, short, f.invert = identity,
                         plural = FALSE) {
 
-  function(help, default) {
+  function(help, default, side.effect = NULL) {
 
     print_default <- default
     if (length(default) > 1)
@@ -34,7 +36,8 @@ arg_factory <- function(f.conversion, type, short, f.invert = identity,
       type = type,
       conversion = f.conversion,
       invert = f.invert,
-      plural = plural
+      plural = plural,
+      side.effect = side.effect
     )
 
   }

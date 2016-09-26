@@ -20,6 +20,11 @@ init_args <- function(...) {
   for(i in seq_along(actuals))
     actuals[[i]] <- evaluated$conversion[[i]](actuals[[i]])
 
+  # Execute side effects
+  for(i in seq_along(actuals))
+    if(!is.null(evaluated$side.effect[[i]]))
+      evaluated$side.effect[[i]](actuals[[i]])
+
   structure(
     actuals,
     help = evaluated$help,
