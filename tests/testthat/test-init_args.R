@@ -43,10 +43,10 @@ test_that("init_args works for a date", {
 test_that("init_args works for plurals", {
 
   args <- init_args(
-    a = argn_int("help a", c(1L, 2L)),
-    b = argn_dbl("help b", c(.1, .2)),
-    c = argn_lgl("help c", c(TRUE, FALSE)),
-    d = argn_chr("help d", c("hello", "world"))
+    a = narg_int("help a", c(1L, 2L)),
+    b = narg_dbl("help b", c(.1, .2)),
+    c = narg_lgl("help c", c(TRUE, FALSE)),
+    d = narg_chr("help d", c("hello", "world"))
   )
 
   expected <- structure(
@@ -68,7 +68,7 @@ test_that("init_args works for plurals", {
 test_that("init_args works with plural dates", {
 
   args <- init_args(
-    a = argn_date("help a", c(as.Date("2016-06-01"), as.Date("2016-06-02")))
+    a = narg_date("help a", c(as.Date("2016-06-01"), as.Date("2016-06-02")))
   )
 
   expected <- structure(

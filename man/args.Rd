@@ -7,34 +7,34 @@
 \alias{arg_dbl}
 \alias{arg_int}
 \alias{arg_lgl}
-\alias{argn_chr}
-\alias{argn_date}
-\alias{argn_dbl}
-\alias{argn_int}
-\alias{argn_lgl}
 \alias{args}
 \alias{args-package}
+\alias{narg_chr}
+\alias{narg_date}
+\alias{narg_dbl}
+\alias{narg_int}
+\alias{narg_lgl}
 \title{args.}
 \usage{
 arg_int(help, default)
 
-argn_int(help, default)
+narg_int(help, default)
 
 arg_dbl(help, default)
 
-argn_dbl(help, default)
+narg_dbl(help, default)
 
 arg_lgl(help, default)
 
-argn_lgl(help, default)
+narg_lgl(help, default)
 
 arg_chr(help, default)
 
-argn_chr(help, default)
+narg_chr(help, default)
 
 arg_date(help, default)
 
-argn_date(help, default)
+narg_date(help, default)
 }
 \arguments{
 \item{help}{help message}

@@ -47,7 +47,7 @@ arg_int <- arg_factory(as.integer, "integer", "int")
 
 #' @rdname args
 #' @export
-argn_int <- arg_factory(lift_vd(as.integer), "integer", "int",
+narg_int <- arg_factory(lift_vd(as.integer), "integer", "int",
                         plural = TRUE)
 
 #' @rdname args
@@ -56,7 +56,7 @@ arg_dbl <- arg_factory(as.double, "double", "dbl")
 
 #' @rdname args
 #' @export
-argn_dbl <- arg_factory(lift_vd(as.double), "double", "dbl",
+narg_dbl <- arg_factory(lift_vd(as.double), "double", "dbl",
                         plural = TRUE)
 
 #' @rdname args
@@ -65,7 +65,7 @@ arg_lgl <- arg_factory(as.logical, "logical", "lgl")
 
 #' @rdname args
 #' @export
-argn_lgl <- arg_factory(lift_vd(as.logical), "logical", "lgl",
+narg_lgl <- arg_factory(lift_vd(as.logical), "logical", "lgl",
                         plural = TRUE)
 
 #' @rdname args
@@ -74,7 +74,7 @@ arg_chr <- arg_factory(as.character, "character", "chr")
 
 #' @rdname args
 #' @export
-argn_chr <- arg_factory(lift_vd(as.character), "character", "chr",
+narg_chr <- arg_factory(lift_vd(as.character), "character", "chr",
                         plural = TRUE)
 
 #' @rdname args
@@ -83,5 +83,5 @@ arg_date <- arg_factory(as.Date, "character", "date", as.character)
 
 #' @rdname args
 #' @export
-argn_date <- arg_factory(as.Date, "character", "date", as.character,
+narg_date <- arg_factory(as.Date, "character", "date", as.character,
                          plural = TRUE)
