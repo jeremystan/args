@@ -23,15 +23,22 @@ arg_factory <- function(f.conversion, type, short, f.invert = identity,
 
   function(help, default = NULL, side.effect = NULL) {
 
+    # Collapse if longer than 1
     print_default <- default
     if (length(default) > 1)
       print_default <- paste(default, collapse = " ")
+
+    if (is.null(default)) {
+      print_default <- ""
+    } else {
+      print_default <- " [default: %s]" %>% sprintf(print_default)
+    }
 
     if (plural)
       short <- "%s n" %>% sprintf(short)
 
     list(
-      help = "(%s) %s [default: %s]" %>% sprintf(short, help, print_default),
+      help = "(%s) %s%s" %>% sprintf(short, help, print_default),
       default = if (is.null(default)) default else f.conversion(default),
       type = type,
       conversion = f.conversion,

@@ -95,6 +95,7 @@ test_that("side effect works", {
 test_that("value must be supplied or will error", {
 
   # !!! Need to also test that can pass in a req argument and it works
+  # !!! Also need to test that the help message is displayed
 
   expect_error(init_args(req = arg_chr("has no default")),
                "command line arg `--req` must be specified")
