@@ -8,6 +8,7 @@ test_that("init_args works for a simple example", {
     c = arg_lgl("help c", TRUE),
     d = arg_chr("help d", "hello")
   )
+  args
 
   expected <- structure(
     list(a = 1L, b = .1, c = TRUE, d = "hello"),
@@ -88,6 +89,13 @@ test_that("side effect works", {
   ))
 
   expect_identical(res, '[1] "this is my default"')
+
+})
+
+test_that("value must be supplied or will error", {
+
+  expect_error(init_args(req = arg_chr("has no default")),
+               "command line arg `--req` must be specified")
 
 })
 

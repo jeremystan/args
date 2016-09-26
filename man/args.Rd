@@ -16,25 +16,25 @@
 \alias{narg_lgl}
 \title{args.}
 \usage{
-arg_int(help, default, side.effect = NULL)
+arg_int(help, default = NULL, side.effect = NULL)
 
-narg_int(help, default, side.effect = NULL)
+narg_int(help, default = NULL, side.effect = NULL)
 
-arg_dbl(help, default, side.effect = NULL)
+arg_dbl(help, default = NULL, side.effect = NULL)
 
-narg_dbl(help, default, side.effect = NULL)
+narg_dbl(help, default = NULL, side.effect = NULL)
 
-arg_lgl(help, default, side.effect = NULL)
+arg_lgl(help, default = NULL, side.effect = NULL)
 
-narg_lgl(help, default, side.effect = NULL)
+narg_lgl(help, default = NULL, side.effect = NULL)
 
-arg_chr(help, default, side.effect = NULL)
+arg_chr(help, default = NULL, side.effect = NULL)
 
-narg_chr(help, default, side.effect = NULL)
+narg_chr(help, default = NULL, side.effect = NULL)
 
-arg_date(help, default, side.effect = NULL)
+arg_date(help, default = NULL, side.effect = NULL)
 
-narg_date(help, default, side.effect = NULL)
+narg_date(help, default = NULL, side.effect = NULL)
 }
 \arguments{
 \item{help}{help message}

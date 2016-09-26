@@ -21,7 +21,7 @@ NULL
 arg_factory <- function(f.conversion, type, short, f.invert = identity,
                         plural = FALSE) {
 
-  function(help, default, side.effect = NULL) {
+  function(help, default = NULL, side.effect = NULL) {
 
     print_default <- default
     if (length(default) > 1)
@@ -32,7 +32,7 @@ arg_factory <- function(f.conversion, type, short, f.invert = identity,
 
     list(
       help = "(%s) %s [default: %s]" %>% sprintf(short, help, print_default),
-      default = f.conversion(default),
+      default = if (is.null(default)) default else f.conversion(default),
       type = type,
       conversion = f.conversion,
       invert = f.invert,

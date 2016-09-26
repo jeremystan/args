@@ -7,50 +7,62 @@ init_args <- function(...) {
   args <- lazyeval::lazy_dots(...)
 
   # Evaluate all of the args
-  evaluated <- args %>% map("expr") %>% map(eval) %>% transpose
+  evaluated <- args %>% map("expr") %>% map(eval)
 
-  # Setup the parser and read from command line
-  actuals <- setup_parser(
-    names(args), evaluated$type, evaluated$default, evaluated$help,
-    evaluated$invert, evaluated$plural)
+  # Argparse parameteres
+  params <- map2(names(args), evaluated, arg_params)
+
+  # Setup argparse
+  parser <- ArgumentParser()
+
+  # Add all arguments
+  walk(params, lift(parser$add_argument))
+
+  # Parse arguments
+  actuals <- parser$parse_args()
+
+  # Identify any nulls
+  nulls <- map_lgl(actuals, is.null)
+
+  # Throw an error
+  map_if(names(actuals), nulls, function(x) {
+    stop("command line arg `--%s` must be specified" %>% sprintf(x),
+         call. = FALSE)
+    })
 
   # Ensure types are correct
   # invoke_map doesn't work with dates
   #actuals <- invoke_map(evaluated$conversion, actuals)
   for(i in seq_along(actuals))
-    actuals[[i]] <- evaluated$conversion[[i]](actuals[[i]])
+    actuals[[i]] <- evaluated[[i]]$conversion(actuals[[i]])
 
   # Execute side effects
   for(i in seq_along(actuals))
-    if(!is.null(evaluated$side.effect[[i]]))
-      evaluated$side.effect[[i]](actuals[[i]])
+    if(!is.null(evaluated[[i]]$side.effect))
+      evaluated[[i]]$side.effect(actuals[[i]])
 
   structure(
     actuals,
-    help = evaluated$help,
+    help = map(evaluated, "help"),
     class = "args"
   )
 
 }
 
-setup_parser <- function(names, types, defaults, helps, inverts, plurals) {
-
-  # invoke_map doesn't work with dates
-  #defaults <- invoke_map(inverts, defaults)
-  for(i in seq_along(defaults))
-    defaults[[i]] <- inverts[[i]](defaults[[i]])
+#' Convert the results of an arg_factory into params for argparse
+#'
+#' @param arg results of arg_factory call
+arg_params <- function(name, arg) {
 
   params <- list(
-    paste0("--", names),
-    type = types,
-    default = defaults,
-    help = helps,
-    nargs = ifelse(plurals, list('+'), list(1))
+    paste0("--", name),
+    type = arg$type,
+    help = arg$help
   )
 
-  parser <- ArgumentParser()
-  params %>% transpose %>% map(lift(parser$add_argument))
-  parser$parse_args()
+  if (!is.null(arg$default)) params$default <- arg$invert(arg$default)
+  if (arg$plural) params$nargs <- "+"
+
+  params
 
 }
-
